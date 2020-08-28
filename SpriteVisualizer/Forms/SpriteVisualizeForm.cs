@@ -11,6 +11,28 @@ namespace SpriteVisualizer
             InitializeComponent();
         }
 
+        public void Log(string message)
+        {
+            EnableLog(true);
+            logLabel.Text = message;
+        }
+
+        public void SetProgress(int progress)
+        {
+            EnableProgressBar(true);
+            progressBar.Value = progress;
+        }
+
+        private void EnableLog(bool enable)
+        {
+            logLabel.Enabled = enable;
+        }
+
+        private void EnableProgressBar(bool enable)
+        {
+            progressBar.Enabled = enable;
+        }
+
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var fileContent = string.Empty;
