@@ -57,8 +57,17 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.logLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
+            this.container = new System.Windows.Forms.SplitContainer();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.layersBox = new System.Windows.Forms.GroupBox();
+            this.layersList = new System.Windows.Forms.CheckedListBox();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.container)).BeginInit();
+            this.container.Panel1.SuspendLayout();
+            this.container.Panel2.SuspendLayout();
+            this.container.SuspendLayout();
+            this.layersBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -92,30 +101,30 @@
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.openToolStripMenuItem.Text = "&Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(143, 6);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.saveAsToolStripMenuItem.Text = "Export &As";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -264,22 +273,69 @@
             this.statusStrip.TabIndex = 1;
             this.statusStrip.Text = "statusStrip";
             // 
-            // logStatusLabel
+            // logLabel
             // 
-            this.logLabel.Name = "logStatusLabel";
+            this.logLabel.Name = "logLabel";
             this.logLabel.Size = new System.Drawing.Size(39, 17);
             this.logLabel.Text = "Ready";
             // 
-            // toolStripProgressBar
+            // progressBar
             // 
-            this.progressBar.Name = "toolStripProgressBar";
+            this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(100, 16);
+            // 
+            // container
+            // 
+            this.container.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.container.Location = new System.Drawing.Point(0, 24);
+            this.container.Name = "container";
+            // 
+            // container.Panel1
+            // 
+            this.container.Panel1.Controls.Add(this.tabControl);
+            // 
+            // container.Panel2
+            // 
+            this.container.Panel2.Controls.Add(this.layersBox);
+            this.container.Size = new System.Drawing.Size(800, 404);
+            this.container.SplitterDistance = 590;
+            this.container.TabIndex = 2;
+            // 
+            // tabControl
+            // 
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(590, 404);
+            this.tabControl.TabIndex = 0;
+            // 
+            // layersBox
+            // 
+            this.layersBox.Controls.Add(this.layersList);
+            this.layersBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layersBox.Location = new System.Drawing.Point(0, 0);
+            this.layersBox.Name = "layersBox";
+            this.layersBox.Size = new System.Drawing.Size(206, 404);
+            this.layersBox.TabIndex = 0;
+            this.layersBox.TabStop = false;
+            this.layersBox.Text = "Layers";
+            // 
+            // layersList
+            // 
+            this.layersList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layersList.FormattingEnabled = true;
+            this.layersList.Location = new System.Drawing.Point(3, 16);
+            this.layersList.Name = "layersList";
+            this.layersList.Size = new System.Drawing.Size(200, 385);
+            this.layersList.TabIndex = 0;
             // 
             // SpriteVisualizerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.container);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
@@ -289,6 +345,11 @@
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            this.container.Panel1.ResumeLayout(false);
+            this.container.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.container)).EndInit();
+            this.container.ResumeLayout(false);
+            this.layersBox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,5 +385,9 @@
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel logLabel;
         private System.Windows.Forms.ToolStripProgressBar progressBar;
+        private System.Windows.Forms.SplitContainer container;
+        private System.Windows.Forms.GroupBox layersBox;
+        private System.Windows.Forms.CheckedListBox layersList;
+        private System.Windows.Forms.TabControl tabControl;
     }
 }
